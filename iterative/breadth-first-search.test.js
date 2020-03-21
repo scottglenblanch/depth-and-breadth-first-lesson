@@ -1,7 +1,7 @@
 const breadthFirstSearch = require('./breadth-first-search');
 
 it('should print out breadth first', () => {
-  const tree = {
+  const rootNode = {
     value: 'a',
     children: [{
       value: 'b',
@@ -33,7 +33,6 @@ it('should print out breadth first', () => {
     }]
   };
 
-  const rootNode = tree;
   const listOfValues = [];
   const doWhatYouWantWithNode = (node) => {
     listOfValues.push(node.value)
@@ -43,5 +42,5 @@ it('should print out breadth first', () => {
 
   breadthFirstSearch({rootNode, doWhatYouWantWithNode, getChildrenOfNode})
 
-  expect(listOfValues).toStrictEqual(expected);
+  expect(JSON.stringify(listOfValues)).toBe(JSON.stringify(expected));
 });
